@@ -39,30 +39,45 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Align(
         alignment: Alignment.topCenter,
-        child: Column(
+        child: Row(
           children: [
-            TextButton(
-              child: Text("Click Here!"),
-              onPressed: () {
-                print("Single tap");
-              },
-              onLongPress: () {
-                print("Long Tap");
-              },
+            Container(
+              color: Colors.blue,
+              width: 200,
+              height: 200,
+              child: Column(
+                children: [
+                  TextButton(
+                    child: Text("Click Here!"),
+                    onPressed: () {
+                      print("Single tap");
+                    },
+                    onLongPress: () {
+                      print("Long Tap");
+                    },
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        print("Elevate button pressed");
+                      },
+                      onLongPress: () {
+                        print("Elevate button long pressed");
+                      },
+                      child: Text('Elevated Button')),
+                  OutlinedButton(
+                      onPressed: () {
+                        print("Outlined clicked");
+                      },
+                      child: Text("Outlined Button"))
+                ],
+              ),
             ),
-            ElevatedButton(
-                onPressed: () {
-                  print("Elevate button pressed");
-                },
-                onLongPress: () {
-                  print("Elevate button long pressed");
-                },
-                child: Text('Elevated Button')),
-            OutlinedButton(
-                onPressed: () {
-                  print("Outlined clicked");
-                },
-                child: Text("Outlined Button"))
+            Container(
+              color: Colors.red,
+              width: 200,
+              height: 200,
+              child: Center(child: Image.asset("assets/images/flutter_widgets.jpg")),
+            )
           ],
         ),
       ),

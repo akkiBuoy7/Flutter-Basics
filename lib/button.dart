@@ -38,33 +38,16 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Flutter Container"),
       ),
       body: Align(
-        alignment: Alignment.center,
-        child: Container(
-          width: 300,
-          height: 300,
-          color: Colors.blue,
-          child: const Center(
-              child: Text("Hello World",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w700 // bold or thin
-                  ))),
+        alignment: Alignment.topCenter,
+        child: TextButton(
+          child: Text("Click Here!"),
+          onPressed: (){
+            print("Single tap");
+    },onLongPress: (){
+            print("Long Tap");
+        },
         ),
       ),
     );
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
-
-  @override
-  Widget build(BuildContext ctxt) {
-    return new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Multi Page Application Page - 1"),
-        ),
-         );
   }
 }

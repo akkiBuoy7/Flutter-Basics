@@ -39,13 +39,31 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Align(
         alignment: Alignment.topCenter,
-        child: TextButton(
-          child: Text("Click Here!"),
-          onPressed: (){
-            print("Single tap");
-    },onLongPress: (){
-            print("Long Tap");
-        },
+        child: Column(
+          children: [
+            TextButton(
+              child: Text("Click Here!"),
+              onPressed: () {
+                print("Single tap");
+              },
+              onLongPress: () {
+                print("Long Tap");
+              },
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  print("Elevate button pressed");
+                },
+                onLongPress: () {
+                  print("Elevate button long pressed");
+                },
+                child: Text('Elevated Button')),
+            OutlinedButton(
+                onPressed: () {
+                  print("Outlined clicked");
+                },
+                child: Text("Outlined Button"))
+          ],
         ),
       ),
     );

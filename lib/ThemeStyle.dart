@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primarySwatch: Colors.red,
-          textTheme: TextTheme(
+          textTheme: const TextTheme(
               displayLarge:
                   TextStyle(fontSize: 21, fontWeight: FontWeight.w900,
                   color: Colors.yellow),

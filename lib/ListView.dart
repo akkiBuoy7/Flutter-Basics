@@ -112,7 +112,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-
             SizedBox(
               height:200,
               child: ListView.separated(
@@ -160,10 +159,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: arrNames.length,
                 scrollDirection: Axis.vertical,
                 separatorBuilder: (BuildContext context, int index) {
-                  return const Divider(height: 20);
+                  return const Divider(height:40);
                 },
               ),
             ),
+            SizedBox(
+              height: 300,
+              child: ListView.separated(itemBuilder: (context,index){
+                return ListTile(
+                  tileColor: Colors.grey,
+                  leading: Text('${index+1}'),
+                  title: Text(arrNames[index]),
+                  subtitle: Text(arrNames[index]),
+                  trailing: Icon(Icons.add),
+                );
+              }, separatorBuilder: (BuildContext context,int index){
+                return const Divider(height: 10,);
+              }, itemCount: arrNames.length),
+            )
           ],
         ),
       ),

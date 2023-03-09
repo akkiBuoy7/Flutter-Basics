@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Align(
         alignment: Alignment.topCenter,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
               color: Colors.blue,

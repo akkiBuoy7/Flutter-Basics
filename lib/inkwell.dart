@@ -68,3 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+/*
+InkWell is used to provide click action on any kind of widget
+ */

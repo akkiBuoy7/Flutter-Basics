@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_basics/ui_helper/util.dart';
+import 'package:intl/intl.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -29,6 +30,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  var time = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +41,23 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text("Flutter Container"),
       ),
-      body: Text("Hello"),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("CurrentTime:${DateFormat('Hms').format(time)}",style: customTextstyle(),),
+            SizedBox(height: 10,),
+            ElevatedButton(onPressed: (){
+              setState(() {
+
+              });
+            }, child: Text("Get Time"))
+          ],
+        ),
+      ),
     );
   }
 }
+/*
+need to use intl library in pubs file to use DateFormat class
+ */

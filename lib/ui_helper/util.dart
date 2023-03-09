@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 TextStyle customTextstyle(
     {Color textColor = Colors.black,
-    fontSize = 18,
+    fontSize = 18.0,
     FontWeight fontWeight = FontWeight.normal,
     FontStyle fontStyle = FontStyle.normal}) {
   return TextStyle(

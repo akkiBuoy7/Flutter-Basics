@@ -40,8 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [MyAnimatedContainer(),
-          MyAnimatedOpacity()],
+          children: [MyAnimatedContainer(), MyAnimatedOpacity(), MyCrossFade()],
         ),
       ),
     );
@@ -154,6 +153,51 @@ class _MyAnimatedOpacityState extends State<MyAnimatedOpacity> {
   }
 }
 
+class MyCrossFade extends StatefulWidget {
+  @override
+  State<MyCrossFade> createState() => _MyCrossFadeState();
+}
+
+class _MyCrossFadeState extends State<MyCrossFade> {
+  bool isChange = false;
+
+  void animateFoo() {
+    if (!isChange) {
+      isChange = true;
+    } else {
+      isChange = false;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        AnimatedCrossFade(
+          duration: Duration(seconds: 2),
+          firstChild: Container(
+            width: 200,
+            height: 200,
+            color: Colors.green,
+          ),
+          secondChild: SizedBox.square(
+              dimension: 100, child: Image.asset('assets/images/ic_boy.png')),
+          crossFadeState:
+              isChange ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+        sizeCurve: Curves.fastOutSlowIn,),
+        ElevatedButton(
+            onPressed: () {
+              setState(() {
+                animateFoo();
+              });
+            },
+            child: Text("Change"))
+      ],
+    );
+    ;
+  }
+}
+
 /* AnimatedContainer => On Changing shape or visibility it animates
      curve : helps in transition
 
@@ -161,4 +205,9 @@ class _MyAnimatedOpacityState extends State<MyAnimatedOpacity> {
      opacity : 0 -> invisible
                1 -> visible
                0.5 -> transparent
+
+   AnimatedCrossFade => It is used when we need to toggle between two widgets
+     firstChild
+     secondChild
+     crossFadeState => showFirst or showSecond based on a boolean value
  */

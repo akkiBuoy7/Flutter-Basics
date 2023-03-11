@@ -1,0 +1,30 @@
+Step 1 : Create application class by extending Stateless.
+         Override build method and return home screen
+
+Step 2 : Create a custom MyAppBar() extending StatefulWidget implements PreferredSizeWidget
+         Create a constructor(******String title******)
+         Create _MyAppBarState and return in MyAppBar createState Method
+         Now we can directly use appBar in any of the pages by calling MyAppBar(*****"Some Title"****)
+
+Step 3 : Create SplashPage (Stateful)
+         Create _SplashPageState and return in SplashPage createState Method
+         Similarly Create SplashUi(Stateful) and return it from build method of _SplashPageState
+         Override initState() to initialize Timer
+         Create Navigator with pushReplacement and pass the LoginPage()
+
+Step 4 : Create UserData Class to hole email and phno
+         It will hold the data for login page input fields
+
+Step 5 : Create LoginPage (Stateful)
+         Create _LoginPageState and return in LoginPage createState Method
+         Similarly Create LoginUi(Stateless) and return it from build method of _SplashPageState
+         Build the UI in LoginUi build method
+         Create a button on Pressing which pass Navigator with *********UserData() object********
+
+Step 6 : Create DashPage (Stateful) with a constructor(**********UserData*********)
+         Create _DashPageState and return in DashPage createState Method.
+         In build Method of _DashPageState return DashUi(********widget.userData********)
+         Similarly Create DashUi(StatefulWidget) with a constructor(UserData)
+         In _DashUiState retrieve the ********widget.userData******** and populate UI.
+
+

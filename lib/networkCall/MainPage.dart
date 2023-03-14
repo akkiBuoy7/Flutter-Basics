@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_basics/PackageCall/DetailsPage.dart';
-import 'package:flutter_basics/PackageCall/Model.dart';
+import 'package:flutter_basics/networkCall/DetailsPage.dart';
+import 'package:flutter_basics/networkCall/Model.dart';
 import 'package:http/http.dart' as http;
 
 class MyMainPage extends StatefulWidget {

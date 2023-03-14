@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_basics/PackageCall/Model.dart';
+import 'package:flutter_basics/networkCall/Model.dart';
 
 class DetailsPage extends StatelessWidget{
 

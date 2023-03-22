@@ -200,6 +200,15 @@ ListView.builder => used for dynamic data
   itemBuilder => takes context and index of the list as param
    returns any widget like Text(data =  <desired List[index]>)
 
+  The lists created so far using ListView or ListView.builder occupies the
+  entire width and height of the parent container or the entire screen
+  if screen acts as the parent container.
+
+  In certain cases when you need to create lists within a specific height
+  of the parent container widget, you can make you of the ListView.separated()
+  constructor. It helps to create a fixed length scrollable linear array of items
+   separated by the item separators.
+
 # If using multiple listviews inside column, then need to provide
    height constraint for each listview by using
    SizedBox/Expanded/Flexible

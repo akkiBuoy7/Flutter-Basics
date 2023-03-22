@@ -37,7 +37,11 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text("Flutter Container"),
       ),
-      body: Text("Hello"),
+      body:  Column(
+          children: [
+            Container(color: Colors.redAccent, width: 100, height: 100,)
+          ]
+      ),
       drawer: Drawer(
         child: ListView(
           children: const <Widget>[

@@ -1,5 +1,5 @@
- import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/material.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -37,15 +37,15 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text("Flutter Container"),
       ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(Icons.play_circle,color: Colors.blue,size: 50,),
-            FaIcon(FontAwesomeIcons.amazonPay,size: 50,)
-          ],
-        ),
-      ),
+      body: Column(
+        children: [
+          Container(
+            color: Colors.red,
+            child: Center(
+                child: Image.asset("assets/images/flutter_widgets.jpg")),
+          )
+        ],
+      )
     );
   }
 }

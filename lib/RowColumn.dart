@@ -33,9 +33,9 @@ Row arranges horizontally
 main_axis -> Horizontal
 cross axis -> vertical
 MainAxisAlignment -> can change alignment left or right
- spaceAround -> padding at both ends are equal
- spaceEvenly -> equally divided across width or length of axis
- spaceBetween -> no padding
+ spaceAround -> padding between equal and remaining space is divided by 2 for the ends
+ spaceEvenly -> equally divided across width or length of axis at both ends also
+ spaceBetween -> no padding at ends
  */
 
 /*
@@ -43,9 +43,9 @@ Column arranges vertically
 main_axis -> vertical
 cross axis -> Horizontal
 MainAxisAlignment -> can change alignment left or right
- spaceAround -> padding at both ends are equal
- spaceEvenly -> equally divided across width or length of axis
- spaceBetween -> no padding
+ spaceAround -> padding between equal and remaining space is divided by 2 for the ends
+ spaceEvenly -> equally divided across width or length of axis at both ends also
+ spaceBetween -> no padding at ends
  */
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -128,3 +128,43 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+/*
+we can align the child widgets inside the Row Widget, along main Axis as well as cross Axis. For aligning along the main Axis, you need to use the property mainAxisAlignment. The value possible values for mainAxisAlignment are start, center, end, spaceAround, spaceBetween and spaceEvenly. To specify any of these values for mainAxisAlignment, you need to use MainAxisAlignment object. (for example:- MainAxisAlignment.start)
+
+If you do not provide a value for mainAxisAlignment, it uses the default value as start
+
+start: it places the children widgets closer to the start of main axis
+
+end: it places the children widgets closer to the end of main axis
+
+center: it places the children widgets closer the center of main axis
+
+spaceAround: it places the free space evenly between the children as well as half of that space before and after the first and last child
+
+spaceBetween: it places the free space between evenly between the children
+
+spaceEvenly: it places the free space evenly between the children as well as before and after the first and last child
+ */
+
+/*
+Aligning the Child Widgets along cross Axis
+For aligning along the cross Axis i.e., vertically in case of Row widgets, you need to use the property crossAxisAlignment. The value possible values for crossAxisAlignment are start, center, end, stretch. To specify any of these values for crossAxisAlignment, you need to use CrossAxisAlignment object.
+
+for example:- CrossAxisAlignment.start
+
+If you do not provide a value for crossAxisAlignment, it uses the default value as center
+
+start - It places the children widgets closest to the start of cross axis
+
+end -  It places the children widgets closest to the end of cross axis
+
+center - It places the children widgets in the middle of the cross axis
+
+stretch - It will require the children widgets to fill the cross axis
+ */
+
+/*
+mainAxisSize – This will by default set the total free space along the main axis to the maximum value possible. This means the child widgets will as wide as possible. To make it narrow, you can set the mainAxisSize value to min.
+textDirection – By default the text content is displayed from left to right direction. You can also change this direction of text by using the textDecoration option with a value set as rtl.
+ */

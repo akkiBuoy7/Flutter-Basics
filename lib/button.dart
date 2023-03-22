@@ -114,12 +114,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            Container(
-              color: Colors.red,
-              width: 200,
-              child: Center(
-                  child: Image.asset("assets/images/flutter_widgets.jpg")),
-            )
           ],
         ),
       ),

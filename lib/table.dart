@@ -57,3 +57,30 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+/*
+Table widget will automatically decide the column width by equally dividing
+between the TableCell’s. If it is not equally divided, it will throw an error
+saying “TableRow in a Table must have the same number of children so that every
+ cell is filled, otherwise the table will be having holes”
+
+Each table row will always have the same height which is equal to the maximum
+height of a Table Cell.
+
+A table can have only TableRow as the children widgets
+
+defaultVerticalAlignment:
+
+This property takes TableCellVerticalAlignment enum as parameter value and aligns
+the cells vertically in the table. Some of the values that it can take are middle,
+top, bottom, fill and so on.
+
+textBaseline:
+
+This property takes TextBaseline enum as parameter. Using this property, you can
+ specify a horizontal line to align the text on the screen inside the Table widget.
+
+textDirection:
+
+This property works similar to reverse property of GridView. It can be used to
+arrange the columns in left to right or right to left direction. The default value is ltr but can also be set to rtl.
+ */

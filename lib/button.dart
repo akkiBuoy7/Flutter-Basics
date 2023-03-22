@@ -43,13 +43,20 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
-              color: Colors.blue,
               width: 200,
-              height: 200,
               child: Column(
                 children: [
                   TextButton(
                     child: Text("Click Here!"),
+                    style: TextButton.styleFrom(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(5))),
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.blue,
+                        shadowColor: Colors.green,
+                        elevation: 10,
+                        textStyle: TextStyle(fontWeight: FontWeight.bold),
+                        disabledForegroundColor: Colors.red.withOpacity(0.38)),
                     onPressed: () {
                       print("Single tap");
                     },
@@ -69,15 +76,49 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {
                         print("Outlined clicked");
                       },
-                      child: Text("Outlined Button"))
+                      child: Text("Outlined Button")),
+                  FloatingActionButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.ac_unit,
+                      color: Colors.red,
+                    ),
+                    backgroundColor: Colors.yellow,
+                  ),
+                  IconButton(
+                      onPressed: () {},
+                      color: Colors.black,
+                      tooltip: "increase volume",
+                      icon: Icon(
+                        Icons.volume_down,
+                        color: Colors.red,
+                      )),
+                  PopupMenuButton(
+                    elevation: 3.2,
+                    initialValue: 'Log in',
+                    onCanceled: () {},
+                    tooltip: 'Pop up menu button',
+                    onSelected: (data) {
+                      print(data);
+                    },
+                    itemBuilder: (context) {
+                      return ['Log in', 'About Us', 'User Profile']
+                          .map((choice) {
+                        return PopupMenuItem(
+                          value: choice,
+                          child: Text(choice),
+                        );
+                      }).toList();
+                    },
+                  )
                 ],
               ),
             ),
             Container(
               color: Colors.red,
               width: 200,
-              height: 200,
-              child: Center(child: Image.asset("assets/images/flutter_widgets.jpg")),
+              child: Center(
+                  child: Image.asset("assets/images/flutter_widgets.jpg")),
             )
           ],
         ),
@@ -85,3 +126,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+/*
+PopUpMenuButton:
+Itembuilder :  will return a list of popupmenuItems
+onSelected: On selecting any of the popupmenuItems the value will be received
+            in the onSelected method and we can do routing here based on value
+ */

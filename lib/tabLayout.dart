@@ -9,7 +9,26 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
+
+  var _controller;
+  int _selectedIndex = 0;
+
+  @override
+  void initState() {
+
+    _controller = TabController(length: 3, vsync: this);
+    _controller.addListener(() {
+      setState(() {
+        _selectedIndex = _controller.index;
+      });
+      print("You have selected index $_selectedIndex");
+    });
+
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,6 +37,7 @@ class _MyAppState extends State<MyApp> {
         child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
+              controller: _controller,
               indicator: BoxDecoration(
                 // custom indicator
                 color: Colors.grey,
@@ -40,10 +60,11 @@ class _MyAppState extends State<MyApp> {
             title: Text('Tabs Demo'),
           ),
           body: TabBarView(
+            controller: _controller,
             children: [
-              FirstScreen(),
-              SecondScreen(),
-              ThirdScreen()
+              FirstScreen(_selectedIndex),
+              SecondScreen(_selectedIndex),
+              ThirdScreen(_selectedIndex)
             ],
           ),
         ),
@@ -53,12 +74,18 @@ class _MyAppState extends State<MyApp> {
 }
 
 class FirstScreen extends StatelessWidget {
+
+  int _selectedIndex = 0;
+
+
+  FirstScreen(this._selectedIndex);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Center(
           child: Text(
-        'It is first tab',
+        'It is $_selectedIndex tab',
         style: TextStyle(fontSize: 32.0),
       )),
     );
@@ -66,12 +93,18 @@ class FirstScreen extends StatelessWidget {
 }
 
 class SecondScreen extends StatelessWidget {
+
+  int _selectedIndex = 0;
+
+
+  SecondScreen(this._selectedIndex);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Center(
           child: Text(
-        'It is second tab',
+        'It is $_selectedIndex tab',
         style: TextStyle(fontSize: 32.0),
       )),
     );
@@ -79,12 +112,17 @@ class SecondScreen extends StatelessWidget {
 }
 
 class ThirdScreen extends StatelessWidget {
+
+  int _selectedIndex = 0;
+
+  ThirdScreen(this._selectedIndex);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Center(
           child: Text(
-        'It is third tab',
+        'It is $_selectedIndex tab',
         style: TextStyle(fontSize: 32.0),
       )),
     );

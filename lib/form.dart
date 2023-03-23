@@ -59,6 +59,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 SizedBox(height: 10),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
+                  // using form_field_validator plugin
                   validator: MultiValidator([
                     RequiredValidator(errorText: 'Email Id is required'),
                     EmailValidator(errorText: "Enter a valid email"),
@@ -81,8 +82,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 SizedBox(
                   height: 10,
                 ),
-                Text(
-                    registrationMessage)
+                Text(registrationMessage)
               ],
             ),
           ),
@@ -124,15 +124,12 @@ class _RegisterFormState extends State<RegisterForm> {
     }
   }
 
-
   void validateForm() {
     if (_formKey.currentState!.validate()) {
       this._formKey.currentState!.save();
       print("Registration Successful");
       print(this._data.employeeName);
-      setState(() {
-
-      });
+      setState(() {});
     } else {
       print("Invalid input data");
     }

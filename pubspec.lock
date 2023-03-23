@@ -104,6 +104,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "10.4.0"
+  form_field_validator:
+    dependency: "direct dev"
+    description:
+      name: form_field_validator
+      sha256: c1fc6c89b5525288c02fe989a88c6f30bb6072da4f9dded17a04cf68c4abfb87
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   http:
     dependency: "direct dev"
     description:
@@ -228,10 +236,10 @@ packages:
     dependency: "direct dev"
     description:
       name: shared_preferences
-      sha256: ee6257848f822b8481691f20c3e6d2bfee2e9eccb2a3d249907fcfb198c55b41
+      sha256: "78528fd87d0d08ffd3e69551173c026e8eacc7b7079c82eb6a77413957b7e394"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.18"
+    version: "2.0.20"
   shared_preferences_android:
     dependency: transitive
     description:

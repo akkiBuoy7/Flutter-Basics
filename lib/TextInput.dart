@@ -37,8 +37,23 @@ class _MyHomePageState extends State<MyHomePage> {
   var passText = TextEditingController();
   var phoneText = TextEditingController();
 
+  bool _hideText = true;
+  String _typedText = "";
+  String _typedNo = "";
+  RegExp stringValidator = RegExp("^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+\$");
+  bool isAString = true;
+
   @override
   Widget build(BuildContext context) {
+
+
+    // listening to text changes with controller
+    phoneText.addListener(() {
+      setState(() {
+        _typedNo = phoneText.text;
+      });
+    });
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -50,10 +65,27 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
+            child: RichText(text: TextSpan(
+              text: "Entered email is ",
+              style: TextStyle(color: Colors.black),
+              children:[ TextSpan(
+                text: "$_typedText",
+                style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold)
+              )]
+            )),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
             child: Container(
               padding: EdgeInsets.only(left: 20,right: 20),
               child: TextField(
                 controller: emailText,
+                maxLength: 7,
+                onChanged: (value){ // listening to text changes with onChanged
+                  setState(() {
+                    _typedText = value;
+                  });
+                },
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.email),
                   focusedBorder: OutlineInputBorder(
@@ -73,6 +105,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: RichText(text: TextSpan(
+                text: "Entered ph no is ",
+                style: TextStyle(color: Colors.black),
+                children:[ TextSpan(
+                    text: "$_typedNo",
+                    style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold)
+                )]
+            )),
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
@@ -108,12 +151,25 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.only(left: 20,right: 20),
               child: TextField(
                 controller: passText,
-                obscureText: true,
+                obscureText: _hideText,
+                obscuringCharacter: "*",
+                onChanged: (value){
+                  if(value.isEmpty || stringValidator.hasMatch(value)){
+                    setValidator(true);
+                  }else{
+                    setValidator(false);
+                  }
+                },
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.key),
+                  errorText: isAString?null:"Please enter alpha numeric password",
                   suffixIcon: IconButton(
                     icon: Icon(Icons.remove_red_eye),
                     onPressed: (){
+
+                      setState(() {
+                        _hideText = !_hideText;
+                      });
 
                     },
                   ),
@@ -146,5 +202,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       )
     );
+  }
+
+  void setValidator(valid) {
+    setState(() {
+      isAString = valid;
+    });
   }
 }

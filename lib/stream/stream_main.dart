@@ -69,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
     /*
+    Subscriber
     Updating the UI after stream event is listened
      */
     myBroadcastStream.listen((event) {

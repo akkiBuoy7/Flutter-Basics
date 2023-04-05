@@ -130,7 +130,10 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 /*
-we can align the child widgets inside the Row Widget, along main Axis as well as cross Axis. For aligning along the main Axis, you need to use the property mainAxisAlignment. The value possible values for mainAxisAlignment are start, center, end, spaceAround, spaceBetween and spaceEvenly. To specify any of these values for mainAxisAlignment, you need to use MainAxisAlignment object. (for example:- MainAxisAlignment.start)
+we can align the child widgets inside the Row Widget, along main Axis as well as
+ cross Axis. For aligning along the main Axis, you need to use the property mainAxisAlignment.
+ The value possible values for mainAxisAlignment are start, center, end, spaceAround, spaceBetween and spaceEvenly.
+ To specify any of these values for mainAxisAlignment, you need to use MainAxisAlignment object. (for example:- MainAxisAlignment.start)
 
 If you do not provide a value for mainAxisAlignment, it uses the default value as start
 

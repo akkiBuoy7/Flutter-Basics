@@ -135,7 +135,7 @@ class _RegisterFormState extends State<RegisterForm> {
     }
   }
 
-  //********* validate on button click**********
+  //*****************************************
 
   // validate name (auto validate)
   String? validateEmployeeName(String? empName) {

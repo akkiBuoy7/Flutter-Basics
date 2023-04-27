@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //case 2 *********************ASYNCHRONOUS******************************
   /*
   It is a simple asynchronous call to add image.
-  The image addition is not delayed
+  The image addition is delayed
   so the widget 3 will be added instantly even before image
    */
   getNetworkAssetAsync() {

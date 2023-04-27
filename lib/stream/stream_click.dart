@@ -69,8 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
 /*
 StreamController :  class to create streams
 streamController.sink : used to add event to stream using add method
-streamController.stream : gives output from the stream only once
-streamController.stream.asBroadcastStream() : gives output from the stream multiple times
+streamController.stream : gives output from the stream only once.Can be listened only once
+streamController.stream.asBroadcastStream() : gives output from the.Can be listened only multiple times
 streamController.stream.listen((event) {} : subscribe to stream events
 StreamBuilder: subscribe to stream events and can update UI with builder
  */

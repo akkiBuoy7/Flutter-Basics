@@ -18,7 +18,7 @@ class RemoteApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home:  RemoteHomePage(),
+      home:  RemoteKeyHomePage(),
     );
   }
 }

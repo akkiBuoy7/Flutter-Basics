@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_basics/remote_key/utils/IntentHandler.dart';
+import 'package:flutter_basics/remote_key/utils/custom_dropdown.dart';
 
 import 'bottom_sheet.dart';
 
@@ -22,14 +23,16 @@ class _RemoteHomePageState extends State<RemoteHomePage> {
   ];
   int _selectedSortValue = 0;
   int _horizontalScrollIndex = 0;
+  final GlobalKey dropDownKey = GlobalKey();
+  int dropDownIndex = 0;
 
-  List<DropdownMenuItem<String>> get dropdownItems {
-    List<DropdownMenuItem<String>> menuItems = [
-      DropdownMenuItem(child: Text("Channel1"), value: "Channel1"),
-      DropdownMenuItem(child: Text("Channel2"), value: "Channel2"),
-      DropdownMenuItem(child: Text("Channel3"), value: "Channel3"),
-      DropdownMenuItem(child: Text("Channel4"), value: "Channel4"),
-      DropdownMenuItem(child: Text("Channel5"), value: "Channel5"),
+  List<CustomDropdownMenuItem<String>> get dropdownItems {
+    List<CustomDropdownMenuItem<String>> menuItems = [
+      CustomDropdownMenuItem(child: Text("Channel1"), value: "Channel1"),
+      CustomDropdownMenuItem(child: Text("Channel2"), value: "Channel2"),
+      CustomDropdownMenuItem(child: Text("Channel3"), value: "Channel3"),
+      CustomDropdownMenuItem(child: Text("Channel4"), value: "Channel4"),
+      CustomDropdownMenuItem(child: Text("Channel5"), value: "Channel5"),
     ];
     return menuItems;
   }
@@ -81,8 +84,9 @@ class _RemoteHomePageState extends State<RemoteHomePage> {
                                 color: dropDownFocus.hasFocus
                                     ? Colors.black12
                                     : null,
-                                child: DropdownButton(
+                                child: CustomDropdownButton(
                                   autofocus: true,
+                                  key: dropDownKey,
                                   value: selectedDropdownItem,
                                   dropdownColor: Colors.grey,
                                   style: TextStyle(
@@ -227,11 +231,15 @@ class _RemoteHomePageState extends State<RemoteHomePage> {
         SelectButtonIntent:
             CallbackAction<SelectButtonIntent>(onInvoke: (intent) {
           print("*** Dropdown select clicked ***");
+          CustomDropdownButtonState dropDownState = dropDownKey.currentState as CustomDropdownButtonState;
+          dropDownState.onCallTap();
           //_changeFocus(context, dialogBtnFocus);
         }),
         EnterButtonIntent:
             CallbackAction<EnterButtonIntent>(onInvoke: (intent) {
           print("*** Dropdown enter clicked ***");
+          CustomDropdownButtonState dropDownState = dropDownKey.currentState as CustomDropdownButtonState;
+          dropDownState.onCallTap();
           //_changeFocus(context, dialogBtnFocus);
         }),
       },
@@ -310,6 +318,13 @@ class _RemoteHomePageState extends State<RemoteHomePage> {
           });
           print("*** list right clicked ${_horizontalScrollIndex}***");
         }),
+        UpButtonIntent:
+        CallbackAction<UpButtonIntent>(onInvoke: (intent) {
+          setState(() {
+            _changeFocus(context, contentFocus);
+          });
+          print("*** list up clicked ${_horizontalScrollIndex}***");
+        }),
         LeftButtonIntent: CallbackAction<LeftButtonIntent>(onInvoke: (intent) {
           print("*** list left clicked ${_horizontalScrollIndex}***");
           setState(() {
@@ -335,4 +350,6 @@ class _RemoteHomePageState extends State<RemoteHomePage> {
       },
     );
   }
+
+
 }
